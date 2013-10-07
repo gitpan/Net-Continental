@@ -3,7 +3,7 @@ use warnings;
 no warnings 'once';
 package Net::Continental::Zone;
 {
-  $Net::Continental::Zone::VERSION = '0.007';
+  $Net::Continental::Zone::VERSION = '0.008';
 }
 # ABSTRACT: a zone of IP space
 
@@ -32,7 +32,7 @@ Net::Continental::Zone - a zone of IP space
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =head1 METHODS
 
