@@ -3,7 +3,7 @@ use warnings;
 no warnings 'once';
 package Net::Continental::Zone;
 # ABSTRACT: a zone of IP space
-$Net::Continental::Zone::VERSION = '0.009';
+$Net::Continental::Zone::VERSION = '0.010';
 use Locale::Codes::Country ();
 use Net::Domain::TLD ();
 
@@ -56,11 +56,16 @@ sub in_nerddk     {
 
 sub nerd_response {
   my ($self) = @_;
+
   my $n = Locale::Codes::Country::country_code2code(
     $self->code,
     'alpha-2',
     'numeric',
   );
+
+  # coping with broken(?) Locale::Codes::Country -- rjbs, 2014-01-20
+  $n = 158 if $self->code eq 'tw';
+
   return unless $n;
   my $top = $n >> 8;
   my $bot = $n % 256;
@@ -70,6 +75,10 @@ sub nerd_response {
 sub continent     { $Net::Continental::Continent{ $_[0][1] } }
 sub description   { $_[0][2] }
 sub is_tld        { Net::Domain::TLD::tld_exists($_[0][0], 'cc'); }
+
+sub tld           {
+  return $_[0][3] if Net::Domain::TLD::tld_exists($_[0][3], 'cc');
+}
 
 1;
 
@@ -85,7 +94,7 @@ Net::Continental::Zone - a zone of IP space
 
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 METHODS
 
