@@ -24,7 +24,7 @@ resources:
   bugtracker: https://github.com/rjbs/Net-Continental/issues
   homepage: https://github.com/rjbs/Net-Continental
   repository: https://github.com/rjbs/Net-Continental.git
-version: 0.010
+version: 0.011
 x_Dist_Zilla:
   perl:
     version: 5.018002

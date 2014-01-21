@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Net::Continental;
 # ABSTRACT: code to map countries to continents, esp. with nerd.dk dnsbl
-$Net::Continental::VERSION = '0.010';
+$Net::Continental::VERSION = '0.011';
 use Carp ();
 use Locale::Codes::Country ();
 use Net::Continental::Zone;
@@ -340,7 +340,7 @@ sub zone_for_nerd_ip {
   my $cc = ($top << 8) + $bot;
 
   my $code = Locale::Codes::Country::country_code2code(
-    $self->code,
+    $cc,
     'numeric',
     'alpha-2',
   );
@@ -385,7 +385,7 @@ Net::Continental - code to map countries to continents, esp. with nerd.dk dnsbl
 
 =head1 VERSION
 
-version 0.010
+version 0.011
 
 =head1 NAME
 
