@@ -3,7 +3,7 @@ use warnings;
 no warnings 'once';
 package Net::Continental::Zone;
 # ABSTRACT: a zone of IP space
-$Net::Continental::Zone::VERSION = '0.011';
+$Net::Continental::Zone::VERSION = '0.012';
 use Locale::Codes::Country ();
 use Net::Domain::TLD ();
 
@@ -94,7 +94,7 @@ Net::Continental::Zone - a zone of IP space
 
 =head1 VERSION
 
-version 0.011
+version 0.012
 
 =head1 METHODS
 

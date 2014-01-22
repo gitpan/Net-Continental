@@ -21,10 +21,10 @@ requires:
   strict: 0
   warnings: 0
 resources:
-  bugtracker: https://github.com/rjbs/Net-Continental/issues
-  homepage: https://github.com/rjbs/Net-Continental
-  repository: https://github.com/rjbs/Net-Continental.git
-version: 0.011
+  bugtracker: https://github.com/pobox/Net-Continental/issues
+  homepage: https://github.com/pobox/Net-Continental
+  repository: https://github.com/pobox/Net-Continental.git
+version: 0.012
 x_Dist_Zilla:
   perl:
     version: 5.018002
