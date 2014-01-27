@@ -50,7 +50,7 @@ sub pmver {
 
 eval { $v .= pmver('Carp','any version') };
 eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
-eval { $v .= pmver('Locale::Codes::Country','any version') };
+eval { $v .= pmver('Locale::Codes::Country','3.29') };
 eval { $v .= pmver('Net::Domain::TLD','any version') };
 eval { $v .= pmver('Scalar::Util','any version') };
 eval { $v .= pmver('Test::More','0.96') };

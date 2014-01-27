@@ -22,7 +22,7 @@ my %WriteMakefileArgs = (
   "NAME" => "Net::Continental",
   "PREREQ_PM" => {
     "Carp" => 0,
-    "Locale::Codes::Country" => 0,
+    "Locale::Codes::Country" => "3.29",
     "Net::Domain::TLD" => 0,
     "Scalar::Util" => 0,
     "strict" => 0,
@@ -31,7 +31,7 @@ my %WriteMakefileArgs = (
   "TEST_REQUIRES" => {
     "Test::More" => "0.96"
   },
-  "VERSION" => "0.012",
+  "VERSION" => "0.013",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -40,7 +40,7 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Carp" => 0,
-  "Locale::Codes::Country" => 0,
+  "Locale::Codes::Country" => "3.29",
   "Net::Domain::TLD" => 0,
   "Scalar::Util" => 0,
   "Test::More" => "0.96",

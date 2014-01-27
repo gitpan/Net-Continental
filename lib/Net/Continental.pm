@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Net::Continental;
 # ABSTRACT: code to map countries to continents, esp. with nerd.dk dnsbl
-$Net::Continental::VERSION = '0.012';
+$Net::Continental::VERSION = '0.013';
 use Carp ();
 use Locale::Codes::Country ();
 use Net::Continental::Zone;
@@ -385,7 +385,7 @@ Net::Continental - code to map countries to continents, esp. with nerd.dk dnsbl
 
 =head1 VERSION
 
-version 0.012
+version 0.013
 
 =head1 NAME
 

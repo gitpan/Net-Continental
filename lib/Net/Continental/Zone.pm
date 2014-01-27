@@ -3,8 +3,8 @@ use warnings;
 no warnings 'once';
 package Net::Continental::Zone;
 # ABSTRACT: a zone of IP space
-$Net::Continental::Zone::VERSION = '0.012';
-use Locale::Codes::Country ();
+$Net::Continental::Zone::VERSION = '0.013';
+use Locale::Codes::Country 3.29 ();
 use Net::Domain::TLD ();
 
 # =method new
@@ -63,9 +63,6 @@ sub nerd_response {
     'numeric',
   );
 
-  # coping with broken(?) Locale::Codes::Country -- rjbs, 2014-01-20
-  $n = 158 if $self->code eq 'tw';
-
   return unless $n;
   my $top = $n >> 8;
   my $bot = $n % 256;
@@ -94,7 +91,7 @@ Net::Continental::Zone - a zone of IP space
 
 =head1 VERSION
 
-version 0.012
+version 0.013
 
 =head1 METHODS
 

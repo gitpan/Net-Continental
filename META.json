@@ -28,7 +28,7 @@
       "runtime" : {
          "requires" : {
             "Carp" : "0",
-            "Locale::Codes::Country" : "0",
+            "Locale::Codes::Country" : "3.29",
             "Net::Domain::TLD" : "0",
             "Scalar::Util" : "0",
             "strict" : "0",
@@ -53,7 +53,7 @@
          "web" : "https://github.com/pobox/Net-Continental"
       }
    },
-   "version" : "0.012",
+   "version" : "0.013",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.018002"
