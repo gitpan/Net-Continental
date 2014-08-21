@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Net::Continental;
 # ABSTRACT: code to map countries to continents, esp. with nerd.dk dnsbl
-$Net::Continental::VERSION = '0.013';
+$Net::Continental::VERSION = '0.014';
 use Carp ();
 use Locale::Codes::Country ();
 use Net::Continental::Zone;
@@ -286,20 +286,20 @@ my %zone = (
   ve => [ S => q{Venezuela} ],
 );
 
-# =head1 NAME
-#
-# Net::Continental - IP addresses of the world, by country and continent
-#
-# =head1 METHODS
-#
-# =head2 zone
-#
-#   # Get the zone for the US.
-#   my $zone = Net::Continental->zone('us');
-#
-# This returns a L<Net::Continental::Zone> object for the given ISO code.
-#
-# =cut
+#pod =head1 NAME
+#pod
+#pod Net::Continental - IP addresses of the world, by country and continent
+#pod
+#pod =head1 METHODS
+#pod
+#pod =head2 zone
+#pod
+#pod   # Get the zone for the US.
+#pod   my $zone = Net::Continental->zone('us');
+#pod
+#pod This returns a L<Net::Continental::Zone> object for the given ISO code.
+#pod
+#pod =cut
 
 my %tld_for_code = (gb => 'uk');
 my %code_for_tld = reverse %tld_for_code;
@@ -326,17 +326,27 @@ sub zone {
   return $zone{ $code };
 }
 
-# =head2 zone_for_nerd_ip
-#
-#   # get the zone for nerd's response for the US
-#   my $zone = Net::Continental->zone_for_nerd_ip('127.0.3.72');
-#
-# =cut
+#pod =head2 zone_for_nerd_ip
+#pod
+#pod   # get the zone for nerd's response for the US
+#pod   my $zone = Net::Continental->zone_for_nerd_ip('127.0.3.72');
+#pod
+#pod =cut
 
 sub zone_for_nerd_ip {
   my ($self, $ip) = @_;
 
-  my ($top, $bot) = $ip =~ /\A127\.0\.([0-9]+)\.([0-9]+)\z/;
+  my ($matched, $top, $bot);
+  $matched = do {
+    no warnings 'uninitialized';
+    ($top, $bot) = $ip =~ /\A127\.0\.([0-9]+)\.([0-9]+)\z/;
+  };
+
+  unless ($matched) {
+    my $str = defined $ip ? $ip : '(undef)';
+    Carp::croak("invalid input to zone_for_nerd_ip: $str");
+  }
+
   my $cc = ($top << 8) + $bot;
 
   my $code = Locale::Codes::Country::country_code2code(
@@ -350,25 +360,25 @@ sub zone_for_nerd_ip {
   return $self->zone($code);
 }
 
-# =head2 known_zone_codes
-#
-#   my @codes = Net::Continental->known_zone_codes;
-#
-# This returns a list of all known zone codes, in no particular order.
-#
-# =cut
+#pod =head2 known_zone_codes
+#pod
+#pod   my @codes = Net::Continental->known_zone_codes;
+#pod
+#pod This returns a list of all known zone codes, in no particular order.
+#pod
+#pod =cut
 
 sub known_zone_codes {
   return keys %zone
 }
 
-# =head1 AUTHOR
-#
-# This code was written in 2009 by Ricardo SIGNES.
-#
-# The development of this code was sponsored by Pobox.com.  Thanks, Pobox!
-#
-# =cut
+#pod =head1 AUTHOR
+#pod
+#pod This code was written in 2009 by Ricardo SIGNES.
+#pod
+#pod The development of this code was sponsored by Pobox.com.  Thanks, Pobox!
+#pod
+#pod =cut
 
 
 1;
@@ -385,7 +395,7 @@ Net::Continental - code to map countries to continents, esp. with nerd.dk dnsbl
 
 =head1 VERSION
 
-version 0.013
+version 0.014
 
 =head1 NAME
 

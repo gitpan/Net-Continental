@@ -3,50 +3,50 @@ use warnings;
 no warnings 'once';
 package Net::Continental::Zone;
 # ABSTRACT: a zone of IP space
-$Net::Continental::Zone::VERSION = '0.013';
+$Net::Continental::Zone::VERSION = '0.014';
 use Locale::Codes::Country 3.29 ();
 use Net::Domain::TLD ();
 
-# =method new
-#
-# B<Achtung!>  There is no C<new> method for you to use.  Instead, do this:
-#
-#   my $zone = Net::Continental->zone('au');
-#
-# =cut
+#pod =method new
+#pod
+#pod B<Achtung!>  There is no C<new> method for you to use.  Instead, do this:
+#pod
+#pod   my $zone = Net::Continental->zone('au');
+#pod
+#pod =cut
 
 sub _new { bless $_[1] => $_[0] }
 
-# =method code
-#
-# This returns the zone's zone code.
-#
-# =method in_nerddk
-#
-# This is true if the nerd.dk country blacklist is capable, using its encoding
-# scheme, of indicating a hit from this country.
-#
-# =method nerd_response
-#
-# This returns the response that will be given by the nerd.dk country blacklist
-# for IPs in this zone, if one is defined.
-#
-# =method continent
-#
-# This returns the continent in which the zone has been placed.  These are
-# subject to change, for now, and there may be a method by which to define your
-# own classifications.  I do not want to get angry email from people in Georgia!
-#
-# =method description
-#
-# This is a short description of the zone, like "United States" or "Soviet
-# Union."
-#
-# =method is_tld
-#
-# This returns true if the zone code is also a country code TLD.
-#
-# =cut
+#pod =method code
+#pod
+#pod This returns the zone's zone code.
+#pod
+#pod =method in_nerddk
+#pod
+#pod This is true if the nerd.dk country blacklist is capable, using its encoding
+#pod scheme, of indicating a hit from this country.
+#pod
+#pod =method nerd_response
+#pod
+#pod This returns the response that will be given by the nerd.dk country blacklist
+#pod for IPs in this zone, if one is defined.
+#pod
+#pod =method continent
+#pod
+#pod This returns the continent in which the zone has been placed.  These are
+#pod subject to change, for now, and there may be a method by which to define your
+#pod own classifications.  I do not want to get angry email from people in Georgia!
+#pod
+#pod =method description
+#pod
+#pod This is a short description of the zone, like "United States" or "Soviet
+#pod Union."
+#pod
+#pod =method is_tld
+#pod
+#pod This returns true if the zone code is also a country code TLD.
+#pod
+#pod =cut
 
 sub code          { $_[0][0] }
 
@@ -91,7 +91,7 @@ Net::Continental::Zone - a zone of IP space
 
 =head1 VERSION
 
-version 0.013
+version 0.014
 
 =head1 METHODS
 
